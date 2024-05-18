@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
 
+
 def ini_browser(link:str, xpath_dic:dict, retries=5):
     """ Inicializa el browser y abre la pagina del vehiculo
     link: (str) enlace inicial de la página
@@ -57,7 +58,7 @@ def ini_browser(link:str, xpath_dic:dict, retries=5):
     return driver, wait
 
 
-def click_element(xpath_value:str, driver, wait):
+def click_element(xpath_value:str, driver, wait) -> int:
     """ Click en elemento de la pagina"""
     find = 0
     try:
@@ -157,3 +158,14 @@ def get_car_details(id,link, xpath_dic, driver, wait, retries=5 , type='link'):
     driver.implicitly_wait(2) # seconds
 
     return car_info
+
+
+def delete_new_cars(d:dict) -> dict:
+    """ Remove dictionary items with 'nuevoficha' in the link"""
+    for key in list(d.keys()):
+        if 'nuevoficha' in d[key]:
+            del d[key]
+    new_dict = d
+    return new_dict
+
+

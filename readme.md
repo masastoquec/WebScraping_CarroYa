@@ -50,8 +50,9 @@ Este proyecto es un scraper de datos para la plataforma CarroYa. Permite obtener
   <br>Principalmente la variable `max_page = 5`, esta variable limita el web scraping a 5 paginas.
   <br> la variable xpath_dic contiene las definiciones del xpath de los atributos del DOM de la página, que se usar por el script para navegar sobre los elementos y extraer la información, si se quiere agregar variables o si en el futuro la página se actualiza, se deberá actualziar estas definiciones en formato xpath
 
-    ![alt text](image-2.png)
-2. Ejecutar el primer script, que descarga un archivo json con el id y las url de las páginas.
+    ![alt text](img/image-2.png)
+2. Ejecutar el primer script, que descarga un archivo json con el id y las url de las páginas. 
+   <br>Para que el código funcione correctemente a nivel de directorios debes estar ubicado en la raiz del proyecto
 
     ```sh
     python .\src\extract_data.py
@@ -59,11 +60,21 @@ Este proyecto es un scraper de datos para la plataforma CarroYa. Permite obtener
 
     Se podrá ver el log de la ejecución en el terminal con información relevante del proceso
 
-    ![alt text](image-1.png)
+    ![alt text](img/image-1.png)
 
-3. Se creará un archivo con la lista de ID, URLs en `.\data\car_list_{max-pages}.json`.
+    Se creará un archivo con la lista de ID, URLs en `.\data\car_list_{max-pages}.json`.
 
-    ![alt text](image.png)
+    ![alt text](img/image.png)
+
+3. Ejecutar el segundo script, que descarga la información detallada de cada una de las URL de los vehículos y los almacena en formato csv en el archivo `.\data\car_details.csv`.
+    <br>¡Este proceso puete tomar demasiado tiempo dependiendo de la cantidad de items!
+    <br>Como referencia, el proceso de descarga de 100 items demoró 6 minutos 19 segundos. pero esto puede fluctuar, dependiendo de la conexión a internet, demoras en la respues y algúnos métodos de bloqueo que generan que no se cargue la página y se tenga que reintentar el proceso.
+
+    ```sh
+    python .\src\get_details.py
+    ```
+
+4. Limpieza de los datos y EDA, este proceso lo vamos a realizar desde el notebook de jupyter `.\src\EDA.ipnyb`
 
 ## Licencia
 

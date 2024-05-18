@@ -6,6 +6,7 @@ retries = 5
 max_pages = 5
 # json file to save data
 json_file = f'data/car_list_{max_pages}.json'
+csv_file = f'data/car_details_{max_pages}.csv'
 # xpath dictionary to scrape data
 xpath_dic = {
     ## General response

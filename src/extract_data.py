@@ -17,7 +17,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 # import custom definitions and functions
 from definitions import *
-from functions import *
+from functions_ws import *
 
 
 # Main function
