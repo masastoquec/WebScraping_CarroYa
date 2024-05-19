@@ -78,6 +78,5 @@ def main():
         json.dump(dict(total_car_list), file)
 
 
-
 if __name__ == "__main__":
     main()

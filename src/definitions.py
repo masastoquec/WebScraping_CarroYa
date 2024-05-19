@@ -26,7 +26,4 @@ xpath_dic = {
     ## Detail attributes
     'key':'//h5[@class="name"]',
     'value':'//h4[@class="description"]',
-
 }
-
-
