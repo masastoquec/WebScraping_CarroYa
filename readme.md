@@ -2,7 +2,22 @@
 
 [![License](https://img.shields.io/badge/license-GNU-blue.svg)](LICENSE)
 
-Este proyecto es un scraper de datos para la plataforma CarroYa. Permite obtener información de vehículos y realizar análisis sobre ellos.
+Este proyecto es un scraper de datos para la plataforma CarroYa. Permite obtener información de vehículos y realizar análisis sobre ellos. La estructura de las carpetas es la siguiente:
+
+- **WebScraping_CarroYa:** Carpeta principal del proyecto.
+- **src**: Carpeta que contiene los scripts principales del proyecto.
+  - **definitions.py**: Archivo que contiene las definiciones de variables y xpath utilizadas en el web scraping.
+  - **extract_data.py**: Script que descarga un archivo JSON con el ID y las URL de las páginas.
+  -  **get_details.py**: Script que descarga la información detallada de cada URL de los vehículos y la almacena en formato CSV.
+  - **EDA.ipynb:** Notebook de Jupyter utilizado para la limpieza de datos y el análisis exploratorio.
+- **data**: Carpeta que contiene los archivos generados por los scripts.
+  - **car_list_{max-pages}.json**: Archivo con la lista de ID y URLs de los vehículos.
+  - **car_details.csv**: Archivo CSV con la información detallada de los vehículos.
+- **img**: Carpeta que contiene las imágenes utilizadas en el archivo README.md.
+- **pbi**: carpeta que contiene el archivo del power bi (tablero de los resultados).
+- **quality**: Contiene el reporte de calidad de datos generado en html.
+- **LICENSE**: Archivo de licencia GNU.
+- **README.md**: Archivo de documentación principal del proyecto.
 
 ## Tabla de contenidos
 
@@ -45,6 +60,8 @@ Este proyecto es un scraper de datos para la plataforma CarroYa. Permite obtener
 - Crear o actualizar el archivo requirements.txt: `pip freeze > .\requirements.txt`
 
 ## Uso
+En la siguiente imagen se resume el proceso de ejecución de lso scripts:
+![alt text](img/image-3.png)
 
 1. Modificar y guardar el archivo `.\src\definitions.py`.
   <br>Principalmente la variable `max_page = 5`, esta variable limita el web scraping a 5 paginas.

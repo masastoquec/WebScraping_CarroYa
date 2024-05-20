@@ -15,6 +15,9 @@ def standarize_column_names(df:pd.DataFrame) -> pd.DataFrame:
     df = df.loc[:, ~df.columns.str.contains('unnamed')]
     return df
 
+
+
+
 # Define function to clean and preprocess DataFrame
 def clean_dataframe(df:pd.DataFrame, schema:dict, missing_columns_check:list) -> pd.DataFrame:
     print(f'df original size: {df.shape} - columns: {df.columns}' )
