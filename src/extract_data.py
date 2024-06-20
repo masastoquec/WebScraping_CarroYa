@@ -40,7 +40,6 @@ def main():
         url = url_base + f'?page={page+1}'
         driver.get(url)
 
-        
         try:
             element_present = EC.presence_of_element_located((By.XPATH, xpath_dic['cards']))
             WebDriverWait(driver, timeout=10).until(element_present)
@@ -48,8 +47,6 @@ def main():
             print(f'Error or Timeout waiting page {url}')
             driver.refresh()
             driver.implicitly_wait(10) # seconds
-            
-        
 
         # Exctract  ids and links from every item
         ids = driver.find_elements(By.XPATH,value=xpath_dic['id'])
