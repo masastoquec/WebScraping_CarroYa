@@ -1,5 +1,6 @@
 import selenium
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -19,8 +20,7 @@ def ini_browser(link:str, xpath_dic:dict, retries=5):
 
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
     options = webdriver.ChromeOptions()
-    service = webdriver.chrome.service.Service(ChromeDriverManager().install())
-    options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    #options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument('--start-maximized')
     options.add_argument('--disable-extensions')
@@ -28,8 +28,17 @@ def ini_browser(link:str, xpath_dic:dict, retries=5):
     options.add_argument('--allow-running-insecure-content')
     options.add_argument('--disable-web-security')
 
+    #service = ChromeService(executable_path='../driver/chromedriver.exe')
+    #C:\Users\Msastoqu\OneDrive - Caracol Televisión S.A\Master\TFM\project\driver\chromedriver.exe
+    service = ChromeService(executable_path='C:\\Users\\Msastoqu\\OneDrive - Caracol Televisión S.A\\Master\\TFM\\project\\driver\\chromedriver.exe')
+
     driver = webdriver.Chrome(service=service, options=options)
     wait = WebDriverWait(driver, timeout=10)
+    
+    # Obtener la versión de ChromeDriver
+    chrome_driver_version = driver.capabilities['browserVersion']
+    print(f'ChromeDriver version: {chrome_driver_version}')
+
     driver.implicitly_wait(3) # seconds
     driver.get(link)
     
@@ -56,6 +65,8 @@ def ini_browser(link:str, xpath_dic:dict, retries=5):
             driver.refresh()
     driver.implicitly_wait(5)
     return driver, wait
+
+
 
 
 def click_element(xpath_value:str, driver, wait) -> int:

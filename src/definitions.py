@@ -1,12 +1,12 @@
 # url used to scrape data
-url_base = 'https://www.carroya.com/automoviles-y-camionetas'
+url_base = 'https://www.carroya.com/automoviles-y-camionetas/mazda'
 # number of retries in case of error Default 5
 retries = 5
 # max number of pages to scrape
-max_pages = 5
+max_pages = 163
 # json file to save data
-json_file = f'data/car_list_{max_pages}.json'
-csv_file = f'data/car_details_{max_pages}.csv'
+json_file = f'data/car_list_{max_pages}_mazda.json'
+csv_file = f'data/car_details_{max_pages}_mazda.csv'
 # xpath dictionary to scrape data
 xpath_dic = {
     ## General response
